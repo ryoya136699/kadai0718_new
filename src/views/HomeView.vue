@@ -1,15 +1,15 @@
 <template>
-  <hello-world />
+  <name-input />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import NameInput from '../components/NameInput'
 
   export default {
-    name: 'Home',
+    name: 'HomeView',
 
     components: {
-      HelloWorld,
+      NameInput,
     },
   }
 </script>

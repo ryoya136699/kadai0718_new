@@ -1,9 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  
+<template> 
 <v-container style="background-image: url('https://placeholder.pics/svg/500x500/656FFF-FFB2FD/FFFFFF/%E3%80%80'); background-size: cover; fluid">
     <v-row class="text-h3 mb-3 mt-3" justify="center">
       Guess the gender.
@@ -22,33 +17,48 @@
       </v-col>
     </v-row>
     <v-row class="mb-3 mt-3" align="center" justify="center">
-        <v-btn v-on:click="addToName" fab dark small color="gray">
+        <v-btn v-on:click="addToName(name)" fab dark small color="gray">
             追加
         </v-btn>
     </v-row>
+    <v-row class="mb-3 mt-3" align="center" justify="center">
+        入力された名前：{{ inputName }}
+    </v-row>
 </v-container>
+</template>
 
 
 
 <script>
     export default {
+        data(){
+            return {
+                name: ''
+            };
+        },
+
+
         computed: {
             
+            inputName(){
+                return this.$store.state.person.name;
+            }
+
             // VueXのstateから商品リストを取得
-            products() {
-                return this.$store.state.product.products; // 名前空間の変更
-            },
+            //products() {
+            //    return this.$store.state.names; // 名前空間の変更
+            //},
             
             // getterから合計金額を取得
-            totalPrice() {
-                return this.$store.getters['product/totalPrice']; // 名前空間の変更
-            }
+            //totalPrice() {
+            //   return this.$store.getters['product/totalPrice']; // 名前空間の変更
+            //}
         },
 
         methods: {
             // ボタン押下でmutationをcommitする
             addToName(name) {
-            //    this.$store.commit('product/addToCart', product); // 名前空間の変更
+                this.$store.commit('addToName', name);
             }
         }
     }

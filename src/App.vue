@@ -5,36 +5,10 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-btn text to="/" tag="router-link">名前入力</v-btn>
+      <v-btn @click="Estimate_Gender" text>性別推定</v-btn>
+      <v-btn @click="Get_Advice" text>アドバイス</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -51,5 +25,18 @@ export default {
   data: () => ({
     //
   }),
+
+  methods: {
+    async Estimate_Gender(){
+      await this.$store.dispatch('Estimate_gender');
+      this.$router.push('/gender');
+    },
+
+    async Get_Advice(){
+      await this.$store.dispatch('Get_advice');
+      this.$router.push('/advice');
+    }
+  }
+
 };
 </script>
