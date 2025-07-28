@@ -24,3 +24,4 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 "# kadai0718" 
 "# kadai0718_new" 
+"# kadai0718_new" 
